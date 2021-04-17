@@ -1,88 +1,56 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>Tab System</title>
+    <meta charset="UTF-8">    
+    <title>Javascript: Tab System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
-    <style>
-        .title{
-            font-family: sans-serif;
-            color: #dc2d5e;
-            text-align: center;
-        }
-        .tabContainer{
-            width: 100%;
-            height: 350px;
-        }
-        .tabContainer .buttonContainer{
-            height: 15%;
-        }
-        .tabContainer .buttonContainer button{
-            width: 25%;
-            height: 100%;
-            float: left;
-            border: none;
-            outline:none;
-            cursor: pointer;
-            padding: 10px;
-            font-family: sans-serif;
-            font-size: 18px;
-            background-color: #eee;
-        }
-        .tabContainer .buttonContainer button:hover{
-            background-color: #d7d4d4;
-        }
-        .tabContainer .tabPanel{
-            height: 85%;
-            background-color: gray;
-            color: white;
-            text-align: center;
-            padding-top: 105px;
-            box-sizing: border-box;
-            font-family: sans-serif;
-            font-size: 22px;
-            display: none;
-        }
-        button{
-                border-radius: 0 !important;
-        }
-    </style>	
+  
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira+Extra+Condensed:wght@700;800;900&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Yellowtail&display=swap" rel="stylesheet">    
+  
+    <!-- Custom CSS Styles -->
+    <link rel="stylesheet" href="styles.css">
+  </head>    
 </head>
 <body>
-    <div class="container text-center d-flex justify-content-center align-items-center flex-column" style="height: 100vh">
-<h1 class="display-1 text-center text-danger mb-4" id="title">Tab System</h1>
-<div class="tabContainer">
-    <div class="buttonContainer">
-        <button class="btn" onclick="showPanel(0, 'red')">Tab 1</button>
-        <button class="btn" onclick="showPanel(1, 'orange')">Tab 2</button>
-        <button class="btn" onclick="showPanel(2, 'green')">Tab 3</button>
-        <button class="btn" onclick="showPanel(3, 'blue')">Tab 4</button>
-    </div>
-    <div class="tabPanel">Tab 1:Content</div>
-    <div class="tabPanel">Tab 2:Content</div>
-    <div class="tabPanel">Tab 3:Content</div>
-    <div class="tabPanel">Tab 4:Content</div>
-</div>
-</div>
-<script>
-    var buttons=document.querySelectorAll("button");
-    var tabPanels=document.querySelectorAll(".tabPanel");
+    <div class="wrapper">
+        <div class="container d-flex justify-content-center align-items-center flex-column">
+            <h1 class="display-3 text-center text-danger">Tab System</h1>
+            <p class="lead text-center mb-4">Click each Tab to get it's relevent content 🙂!</p>
 
-    function showPanel(index, color){
-        buttons.forEach(function(node){
-            node.style.backgroundColor = ''
-            node.style.color = ''
-        })
-        buttons[index].style.backgroundColor = color
-        buttons[index].style.color = 'white'
-        tabPanels.forEach(function(node){
-            node.style.display = "none"
-        })
-        
-        tabPanels[index].style.backgroundColor = color
-        tabPanels[index].style.display = "block"
-    }
-    showPanel(0, 'red')
-</script>
+            <div class="tabContainer mt-5">
+                <div class="tabs">
+                    <ul>
+                        <li class="active">Designing</li>
+                        <li>Developing</li>
+                        <li>Marketing</li>
+                        <li>Branding</li>
+                    </ul>                    
+                </div>
+                <div class="tabContent" style="display: block">
+                    <h4>Designing</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vel nunc ac velit tempor mollis in nec enim. Nam suscipit leo et dolor placerat tempor. Ut feugiat lobortis turpis, vitae hendrerit turpis congue non. Aenean id convallis lorem. Vestibulum ac ex et ex accumsan dignissim. Proin gravida tincidunt luctus. Praesent sollicitudin, risus at maximus hendrerit, lacus neque efficitur libero, sed finibus massa urna quis dolor. In varius, mi eu tempus dapibus, metus nibh tempor felis, et tincidunt urna turpis vitae purus. Vestibulum interdum nec lacus euismod elementum. Ut pharetra ullamcorper nibh, in hendrerit ante aliquam auctor. Cras non tempor neque. Fusce at velit sed arcu rutrum bibendum. Proin porttitor accumsan pharetra. Fusce eu eleifend augue. Sed vel maximus velit.</p>
+                </div>
+                <div class="tabContent" style="display: none">
+                    <h4>Developing</h4>
+                    <p>Donec dignissim, metus sed placerat semper, ante enim euismod ligula, in tempor ipsum dui cursus lacus. In porttitor turpis at suscipit pulvinar. Quisque eu pretium dui. Nam at justo a lacus pellentesque varius in mattis turpis. Donec pharetra commodo sem, ut congue odio. Nulla posuere sapien mauris, non volutpat neque ultrices at. Nam tristique neque vitae blandit malesuada. Maecenas consectetur eleifend porttitor. Proin iaculis nunc sem, nec scelerisque ex cursus eget. Duis nec neque orci. Morbi ac posuere massa, quis tempor erat. Aenean vestibulum consequat mollis. Praesent mauris felis, commodo eget commodo a, iaculis eu nibh. Maecenas pellentesque nisi gravida, tristique erat quis, lacinia lacus. Sed nisl erat, faucibus sed imperdiet eget, egestas sit amet ligula. Fusce bibendum augue ac tristique tincidunt.</p>
+                </div>
+                <div class="tabContent" style="display: none">
+                    <h4>Marketing</h4>
+                    <p>Vestibulum varius leo nibh, a ultrices nunc condimentum convallis. Suspendisse semper euismod tellus nec imperdiet. Curabitur vel orci vitae libero ultricies eleifend ullamcorper ac nunc. Donec a odio et felis rutrum eleifend ac sit amet nulla. Maecenas finibus libero nisl, et faucibus diam posuere ut. Suspendisse dui ante, eleifend id orci non, commodo cursus odio. Mauris id metus et diam dapibus fringilla tempus eget quam. Fusce vel cursus sapien. Vestibulum suscipit neque at orci elementum, sed imperdiet magna rhoncus.</p>
+                </div>
+                <div class="tabContent" style="display: none">
+                    <h4>Branding</h4>
+                    <p>Praesent ut odio venenatis, auctor metus non, placerat massa. Cras id volutpat tellus. Morbi vel mollis quam. Maecenas elementum consequat mauris, aliquam consectetur tortor finibus in. Cras neque erat, volutpat vel eleifend eu, condimentum in metus. Mauris venenatis, quam a sagittis molestie, velit nunc aliquam mi, quis efficitur magna est a nisl. Sed in nibh ac velit aliquet tincidunt nec sit amet nisi. Donec varius tincidunt nulla, id dictum dui blandit sit amet. Ut tincidunt facilisis purus, sed semper urna viverra et. Sed vitae euismod tortor, vitae finibus odio. Sed efficitur dapibus suscipit. Cras quis magna vestibulum, auctor felis scelerisque, ornare odio. Pellentesque commodo efficitur sodales. Sed pretium augue et cursus mattis. Nam velit sapien, ultricies non felis sagittis, tincidunt pulvinar nisi. Proin euismod, ligula non vulputate feugiat, quam ligula mollis tellus, a tincidunt ipsum nibh interdum lectus.</p>
+                </div>
+            </div>
+            </div>
+    </div>
+    
+<script src="script.js"></script>
 </body>
 </html>
