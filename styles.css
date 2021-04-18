@@ -44,6 +44,7 @@ p.lead::after{
   list-style: none;
   display: flex;
   justify-content: space-between;
+  width: 100%;
 }
 .tabs ul li{  
   display: flex;

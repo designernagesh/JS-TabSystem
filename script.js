@@ -1,21 +1,27 @@
-let tabs = document.querySelectorAll(".tabs li"),
-    tabContent = document.querySelectorAll(".tabContent");
+let tabs = document.querySelectorAll('.tabs li'),
+    tabContent = document.querySelectorAll('.tabContent');
 
-tabs.forEach((tab, tab_index)=> {    
-    tab.addEventListener('click', ()=>{
+let contentDisplayNone = () => {
+    tabContent.forEach( content => {
+        content.style.display = 'none';
+    })
+}
+let removeClassActive = () => {
+    tabs.forEach(tab => {
+        tab.classList.remove('active');
+    })
+}
+removeClassActive();
+contentDisplayNone();
 
-        tabs.forEach(tab => {
-            tab.classList.remove('active');
-        })
+tabs[0].classList.add('active');
+tabContent[0].style.display = 'block';
 
-        tab.classList.add('active');
-
-        tabContent.forEach((content, content_index) => {            
-            if( content_index === tab_index ){
-                content.style.display = 'block';
-            }else{
-                content.style.display = 'none';
-            }
-        })
-    })    
-})
+for(let i = 0; i< tabs.length; i++){
+    tabs[i].addEventListener('click', ()=>{
+        removeClassActive();
+        contentDisplayNone();
+        tabContent[i].style.display = 'block';
+        tabs[i].classList.add('active');
+    })
+}
